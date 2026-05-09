@@ -1,0 +1,22 @@
+# Data Profiling Tool
+
+A Streamlit-based interactive data profiling application.
+
+## Features
+- Missing value analysis
+- Correlation analysis
+- Univariate analysis
+- Bivariate analysis
+- Pivot tables
+- Interactive visualizations
+
+## Tech Stack
+- Python
+- Streamlit
+- Pandas
+- Plotly
+
+## Run Locally
+
+```bash
+streamlit run app.py
