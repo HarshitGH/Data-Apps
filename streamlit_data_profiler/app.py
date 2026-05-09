@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 
 from utils.overview import show_overview
-from utils.missing import show_missing_analysis
-from utils.numeric import show_numeric_analysis
+# from utils.missing import show_missing_analysis
+# from utils.numeric import show_numeric_analysis
 from utils.correlation import show_correlation
 
 # NEW IMPORTS
