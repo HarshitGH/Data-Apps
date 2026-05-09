@@ -120,7 +120,7 @@ if uploaded_file is not None:
             st.download_button(
                 label="⬇ Download Split CSV ZIP",
                 data=zip_buffer,
-                file_name="split_csv_files.zip",
+                file_name=f"{original_filename}_split_files.zip",
                 mime="application/zip",
             )
 
