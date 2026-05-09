@@ -23,9 +23,46 @@ uploaded_file = st.file_uploader(
     type=["csv"]
 )
 
+def clean_column_names(df):
+
+    new_cols = []
+
+    col_count = {}
+
+    for i, col in enumerate(df.columns):
+
+        # Handle null/blank column names
+        if pd.isna(col) or str(col).strip() == "":
+            col = f"column_{i+1}"
+
+        # Remove extra spaces/newlines
+        col = (
+            str(col)
+            .strip()
+            .replace("\n", "_")
+            .replace("\t", "_")
+        )
+
+        # Handle duplicate columns
+        if col in col_count:
+
+            col_count[col] += 1
+
+            col = f"{col}_{col_count[col]}"
+
+        else:
+            col_count[col] = 0
+
+        new_cols.append(col)
+
+    df.columns = new_cols
+
+    return df
+
 if uploaded_file:
 
     df = pd.read_csv(uploaded_file)
+    df = clean_column_names(df)
 
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "Overview",
