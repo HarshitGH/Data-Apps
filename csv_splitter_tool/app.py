@@ -106,7 +106,8 @@ if uploaded_file is not None:
 
                     if not final_df.empty:
 
-                        output_filename = f"split_part_{current_file_number}.csv"
+                        original_filename = uploaded_file.name.replace(".csv", "")
+                        output_filename = f"{original_filename}_part_{current_file_number}.csv"
 
                         csv_bytes = final_df.to_csv(index=False).encode("utf-8")
 
